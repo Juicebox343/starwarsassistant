@@ -1,0 +1,53 @@
+<!-- https://codeburst.io/how-to-build-your-own-wysiwyg-editor-6002fa3f5ea8 -->
+<!-- https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
+<% include ../partials/header %>
+
+<a href="/characters/<%= user %>/inbox">Back to Inbox</a>
+
+<h1 class="page-title">Compose New Message</h1>
+
+<main class="write-post">
+	<% if (screen == "reply"){%>
+			<section class="parent-message-wrapper">
+				<h2>Responding to:</h2>
+				<div class="message-card">
+					<h3 class="message-body"><%= parentMessage[0].subject %></h3>
+					<p>From: <%= parentMessage[0].sender %></p>
+					<hr>
+					<p class="message-body"><%= parentMessage[0].message %>...</p>
+				</div>
+			</section>
+			<div class="form-wrapper">
+				<form id="new-message" class="center-form" action="/characters/<%= user %>/inbox/<%= parentMessage[0].messageID%>/reply" method="POST">
+					<p>
+						<%= parentName[0].first_name %>
+					</p>
+	<%} else { %>
+		<div class="form-wrapper">
+			<form id="new-message" class="center-form" action="/characters/<%= user %>/inbox/new" method="POST">
+				<p>
+					<label for="recipient">To</label>
+					<select name="recipient" id="recipient">
+						<% characters.forEach(function(character){ %>
+							<option value="<%= character.id%>"><%= character.first_name %></option>
+						<% }) %>
+					</select>
+				</p>
+	<%}%>
+			<p>
+				<label for="subject">Subject</label>
+				<input type="text" name="subject" id="subject">
+			</p>
+			<p>
+				<label for="message">Message</label>
+				<textarea name="message" id="message" rows="10" cols="80"></textarea>
+			</p>
+			<p>
+				<button type="submit">Send</button>
+			</p>
+		</form>
+	</div>
+	
+</main>
+
+<% include ../partials/footer %>

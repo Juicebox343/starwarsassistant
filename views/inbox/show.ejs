@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+<nav class="top-nav">
+	<p>
+		<a href="/characters/<%=characterDetails[0].id%>">Back to Userpage</a> 
+	</p>
+	<p>
+		<a href="/logout">Logout</a>
+	</p>
+</nav>
+<main>
+	<section class="inbox-main">
+		<nav class="inbox-nav">
+			<a class="emphasize" href="/characters/<%=characterDetails[0].id%>/inbox/new">Compose Message</a>
+			<a href="/characters/<%=characterDetails[0].id%>/inbox/">Inbox</a>
+			<a href="/characters/<%=characterDetails[0].id%>/inbox/sent-messages">Sent Messages</a>
+		</nav>
+			<section class="inbox">
+				<h1 class="emphasize"><%= characterDetails[0].first_name %>'s Inbox</h1>
+				<section class=inbox-content>
+						<div class="message-card">
+							<h3 class="message-body"><%= messageDetails[0].subject %></h3>
+							<p>From: <%= messageDetails[0].sender %></p>
+							<hr>
+							<p class="message-body" id="parent-message-content"><%= messageDetails[0].message %></p>
+							<a class="fake-btn" href="/characters/<%= characterDetails[0].id %>/inbox/<%= messageDetails[0].messageID %>/reply">Reply</a>
+						
+					<% if(parentMessage != null){ %>
+						<% parentMessage.forEach(function(message){ %>
+								<hr class="hrbold">
+								<h3 class="message-body"><%= message.subject %></h3>
+								<p>From: <%= message.sender %></p>
+								<hr>
+								<p class="message-body"><%= message.message %></p>
+							
+						<% }) %>
+					<% } %>
+						</div>
+				</section>
+			</section>
+	</section>
+</main>
+
+<script>
+	let oldMessage = document.getElementById("parent-message-content").innerText;
+	document.getElementById("parent-message-content").innerHTML = oldMessage;
+</script>
+
+<% include ../partials/footer %>

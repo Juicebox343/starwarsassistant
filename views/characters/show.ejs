@@ -1,0 +1,130 @@
+<% include ../partials/header %>
+
+<nav class="top-nav">
+	<p>
+		<a href="/characters/">Back to User Select</a>
+	</p>
+</nav>
+
+<h1>Hello <%= characterDetails[0].first_name %> <%= characterDetails[0].family_name %></h1>
+
+<main class="home-page">
+	
+	<section class="article">
+	
+
+			<h2>
+			Galactic News
+			</h2>
+			<hr>
+			<button class="article-nav" id="nextBtn">
+				Next Article
+			</button>
+			<button class="article-nav" id="prevBtn">
+				Previous Article
+			</button>
+		<hr>
+			<div class="slide">
+			<h3>
+				The LowerCity Cable - 3 Days Ago
+			</h3>
+			<p>Aeron Kron</p>
+			<p>The fires are beginning to die down on Coruscant’s lower levels, though skirmishes between CCPD and local gangs continue to put residents at risk. A newcomer to the Lower Levels, an organization that refers to itself as The Coop, has made waves after a dramatic unveiling several weeks ago. The Coop and its leadership have opened their doors to all displaced citizens, offering food and shelter on a first come first served basis. Coop official, Prax Du, had this to say: 'I - We just want to help as best we can. There are no strings attached, no membership, no costs or service agreements. If you need help, come to the Coop and we’ll look after you.' Mr. Du declined to state his role in The Coop or identify leadership within the organization. Governor Martin advised The Coop to stay out of the way.</p>
+		</div>
+		<div class="slide">
+			<h3>
+			The LowerCity Cable - 9 Days Ago
+		</h3>
+		<p>Aeron Kron</p>
+		<p>The lower levels of Coruscant continue to burn as week two of hostilities continue. The Governor for Sector 117 has declared a state of emergency and has begun soliciting local Senators for additional resources. Rumor has it that defacto Movement Leader, a droid designated L-14R, has fled Coruscant for unknown reasons. Considered by state officials to be the instigator of the Lower City's violent riots, it's capture is a top priority.Captured Movement aggressors have implied there exists higher leadership beyond L1 and Tobin Sancuun, whether L1 has been in contact with this individual is unknown at this time.</p>
+		</div>
+		<div class="slide">
+			<h3>
+			The LowerCity Cable - 2 Weeks Ago
+		</h3>
+		<p>Aeron Kron</p>	
+		<p>Aggression among the lower city gangs has hit a tipping point. Captain Orlean’s new all droid force has clashed with members of the once docile Movement. Some readers may be familiar with the Movement as a galaxy wide humanitarian organization, but recent weeks would suggest that there has been some measure of combat training among some members.A major leader in the Movement, Tobin Sancuun, was recently incarcerated within the Jedi Temple on suspicions of Sith connections. Mr. Sancuun’s second, a droid designated L-14R, assumed control of Coruscant’s chapter and began the swift action we’ve seen of late. Sources have suggested that many of the aggressors are form CCP officers let go when Orlean's droids were instated.</p>
+		</div>
+		<div class="slide">
+			<h3>
+			The LowerCity Cable - 3 Weeks Ago
+		</h3>
+		<p>Aeron Kron</p> 
+		<p>Captain Bandu Orlean, recently selectected replacement head of the CCP by Sector 117’s governor, J’ael Martin, has made some controversial changes to the CCP workforce. “Whether they’re humans, Twi’leks, Bith, whatever.. Organic creatures are susceptible to corruption and intimidation. What the lower levels need is a firm hand, and nothing is quite as firm as steel. That’s why I have decided to replace all CCP officers with highly capable enforcement droids.” Created specifically for this task, Captain Orlean believes a single droid can do the job of several officers. Neither the governor nor Captain Orlean provided comment on where the now jobless CCP officers were to go.</p>
+		</div>
+		<div class="slide">
+			<h3>
+			The LowerCity Cable - 5 Weeks Ago
+		</h3>
+		<p>Aeron Kron</p>	
+		<p>Major announcement from Governor J’ael Martin today. “The chaos wrought in our Lower City can be directly attributed to ineffective leadership within the CCP itself. As such, as Governor of Sector 117, I have removed our regional Director of the CCP and found a replacement that promises a firmer hand. Captain Bandu Orlean, a former officer with the Republic Navy, has all but guaranteed me results on Coruscant’s lower levels as he implements his new deployment of Droid only police officer attachments. We shall quell the unrest, and hold the responsible parties in contempt.”</p>
+		</div>
+		<div class="slide">
+			<h3>
+			The LowerCity Cable - 6 Weeks Ago
+		</h3>
+		<p>Aeron Kron</p>	
+		<p>Update: 13:45 - Governor of Sector 117, J’ael Martin, has announced taking special interest in this case specifying that her response will be detailed by the next rotation. Original article: At approximately 11:30 hours this morning the body of CCP detective Elizabeth Kale was discovered on level 7, one of the lowest habitable levels of the undercity, by demolition and zone recovery crews. Preliminary medical examination suggests she fell a great height, dying on impact. The detective’s death roughly coincides with calls received by the CCP detailing an altercation occuring on a departure platform in Level 15’s Wrexham Industrial District within Sector 117. This is the third recorded death of a CCP officer in this sector this cycle. The other two were treated as homicides, though no official statement has been made regarding responsibility. Homicide detectives are currently investigating.
+		</div>
+</section>
+
+
+	<section class="messages">
+		<p>
+		<h2><a href="/characters/<%= characterDetails[0].id %>/inbox">Open Inbox</a></h2>
+		<hr>
+			<% if (messageDetails[0] == null){ %>
+				<p>No messages</p>
+			<% } else {%>
+						<% messageDetails.forEach(function(message){ %>
+							<a href="/characters/<%= characterDetails[0].id %>/inbox/<%= message.messageID %>">
+								<div class="mini-message-card">
+									<h3>From: <%= message.sender %></h3>
+									<hr>
+									<div class="mini-message-proper">
+										<span class="message-subject"><%= message.subject %></span>
+										<% if (message.days_since == 0){ %>
+										<span class="message-date">Today</span>
+										<% } else if (message.days_since == 1){ %>
+										<span class="message-date"><%= message.days_since %> day ago</span>
+										<% } else { %>
+										<span class="message-date"><%= message.days_since %> days ago</span>
+										<%}%>
+									</div>
+								</div>
+							</a>
+						<% }) %>
+			<% } %>
+		</p>
+	</section>
+
+	<section class="weather">
+		<h1>
+			Galactic Weather
+		</h1>
+		<hr>
+		<div class="weather-card">
+			<h2>
+				Telewrath
+			</h2>
+			<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[0].icon%>.svg">
+			<p>
+				<%= Math.round(weather.daily.data[0].temperatureHigh); %>
+			</p>
+		</div>
+		<hr>
+		<div class="weather-card">
+			<h2>
+				Coruscant
+			</h2>
+			<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+			<p>
+				<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+			</p>
+		</div>
+		
+	</section>
+</main>
+
+
+<% include ../partials/footer %>

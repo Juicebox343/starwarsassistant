@@ -1,0 +1,415 @@
+ * , *:before, *:after{ 
+     box-sizing:border-box; 
+     -moz-box-sizing:border-box; 
+     -webkit-box-sizing:border-box; 
+     -ms-box-sizing:border-box;
+   }
+
+html{
+	overflow: hidden;
+	font-family: "Verdana";
+	height: 100%;
+	width: 100%;
+	background: repeating-linear-gradient(
+				to top,
+				rgb(21, 102, 194, 0.3),
+				rgb(21, 102, 194, 0.3) 3px,
+				rgb(117, 218, 255, 0.3) 3px,
+				rgb(117, 218, 255, 0.3) 6px
+			),repeating-linear-gradient(
+				to top,
+				rgb(41, 93, 227, 0.15),
+				rgb(41, 93, 227, 0.15) 2px,
+				rgb(14, 52, 150, 0.15) 2px,
+				rgb(14, 52, 150, 0.15) 4px
+			), repeating-linear-gradient(
+				to right,
+				rgb(41, 93, 227, 0.15),
+				rgb(41, 93, 227, 0.15) 2px,
+				rgb(14, 52, 150, 0.15) 2px,
+				rgb(14, 52, 150, 0.15) 4px
+			);
+	background-color: #1566c2;
+	
+}
+
+body{
+	margin: 0;
+	padding: 0 20px;
+	height: 100%;
+	opacity: .9;
+	background:radial-gradient(ellipse at bottom, rgba(176,234,255,0.3), rgba(14, 52, 150, 0.5));
+}
+
+main{
+	height: 80%;
+	
+}
+
+.home-page{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 1vw;
+	grid-template-areas: 
+    "weather email news";
+}
+
+.inbox-main{
+	padding: 10px;
+	min-height: 100%;
+	display: grid;
+	grid-template-columns: 200px 1px 1fr;
+	grid-template-rows: auto;
+	grid-column-gap: 1vw;
+	grid-template-areas: 
+    "inbox-nav divider main";
+}
+
+p, h1, h2, h3, a, label{
+	color: #b0eaff;
+	margin: 0;
+}
+
+
+header{
+	border-bottom: solid 2px rgb(176, 234, 255);
+	text-align: center;
+}
+
+.top-nav{
+	padding: 10px;
+}
+
+.top-nav a{
+}
+
+.result-main{
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.inbox-content{
+	padding-left: 5px;
+}
+
+.result-card{
+	border: solid 2px rgb(176, 234, 255);
+	padding: 3px 7px;
+	margin: 7px;
+	background-color: rgb(21, 102, 194);
+}
+
+.message-body{
+	grid-area: message;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #b0eaff;
+}
+
+.message-subject{
+	grid-area: subject;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	color: #b0eaff;
+}
+
+.message-date{
+	grid-area: when;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: right;
+}
+
+hr{
+	border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(176, 234, 255, 0.75), rgba(176, 234, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+#artifact{
+	animation-name: artifact-animation;
+	text-align: center;
+	opacity: 0;
+	height: 100px;
+	width: 100%;
+	background-image: radial-gradient(rgba(176,234,255,0.2), rgba(0,0,0,0) 80%);
+  	animation-duration: 7s;
+	position: absolute;
+	bottom: 0%;
+	left: -30px;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}  
+
+@keyframes artifact-animation {
+  from {bottom: 0%; opacity: .3;}
+  to {bottom: 100%; opacity: .45;}
+}
+
+input{
+	background-color: rgb(21, 102, 194);
+	border: solid 2px rgb(176, 234, 255);
+	color: rgb(176, 234, 255);
+	display: block;
+    width: 100%;
+}
+
+button{
+	background-color: rgb(21, 102, 194);
+	border: solid 2px rgb(176, 234, 255);
+	color: rgb(176, 234, 255);
+}
+
+textarea{
+	background-color: rgb(21, 102, 194);
+	border: solid 2px rgb(176, 234, 255);
+	color: rgb(176, 234, 255);
+    width: 100%;
+}
+
+select{
+	background-color: rgb(21, 102, 194);
+	border: solid 2px rgb(176, 234, 255);
+	color: rgb(176, 234, 255);
+    width: 100%;
+}
+
+.character-card{
+	width: 200px;
+	height: 50px;
+	padding: 3px 7px;
+	margin: 7px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+}
+
+.character-card:hover{
+	background-color: rgb(176, 234, 255);
+	color: rgb(21, 102, 194);
+}
+
+.message-card{
+	width: 100%;
+	min-height: 65px;
+	padding: 3px 7px;
+	margin: 7px 0;
+	padding-bottom: 15px;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+
+}
+
+.message-proper{
+	display: grid;
+	width: 85%;
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-column-gap: 1vw;
+	grid-template-areas: 
+    "subject message when";
+}
+
+.mini-message-proper{
+	display: flex;
+	width: 100%;
+	padding: 0 4px;
+	justify-content: space-between;
+}
+
+.mini-message-card{
+	width: 100%;
+	min-height: 65px;
+	padding: 4px;
+	margin: 4px 0;
+	border: solid 1px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+}
+
+a{
+	text-decoration: none;
+}
+
+.page-title{
+	text-align: center;
+}
+
+.form-page{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+}
+
+.write-post{
+	
+	padding-bottom: 20px;
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 30%;
+	grid-column-gap: 1vw;
+	grid-template-areas: 
+		"new-message"
+		"parent-message";
+}
+
+.parent-message-wrapper{
+	grid-area: parent-message;
+}
+
+.form-wrapper{
+	grid-area: new-message;
+	padding: 10px;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(117, 218, 255, 0.1);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+}
+
+.center-form > p{
+	padding: 10px;
+}
+
+
+.article{
+	grid-area: news;
+	padding: 4px;
+	height: 100%;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+	order: 2;
+}
+
+.weather{
+	grid-area: weather;
+	height: 100%;
+	padding: 4px;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+	order: 3;
+}
+
+.messages{
+	padding: 4px;
+	grid-area: email;
+	border: solid 2px rgb(176, 234, 255);
+	background-color: rgb(21, 102, 194, 0.7);
+	box-shadow: 0 1px 4px rgb(176, 234, 255,0.6);
+	order: 1;
+}
+
+.inbox{
+	grid-area: main;
+}
+
+.outbox{
+	grid-area: main;
+}
+
+.inbox-nav{
+	grid-area: inbox-nav;
+}
+
+.inbox-div{
+	grid-area: divider;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(176, 234, 255);
+}
+
+.inbox-nav >*{
+	grid-area: inbox-nav;
+	display: block;
+}
+
+.emphasize{
+	font-size: 1.1em;
+	padding: 1vw 0;
+}
+
+.fake-btn{
+	padding: 2px;
+	background-color: rgb(21, 102, 194);
+	border: solid 2px rgb(176, 234, 255);
+	color: rgb(176, 234, 255);
+}
+
+.article-nav{
+	
+}
+
+.slide {
+
+}
+
+.weather-card{
+	padding: 20px;
+	text-align: center;
+}
+
+.weather-icon img{
+	fill: #b0eaff;
+}
+@media only screen and (max-width: 1000px) {
+	
+	html{
+		overflow: scroll;
+	}
+	
+	.home-page{
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: auto;
+		grid-row-gap: 1vw;
+		grid-template-areas: 
+    		"email" 
+			"news"
+			"weather";
+}
+	
+	.article, .weather, .messages{
+		width: 100%;
+	}
+	
+	.hrbold{
+   		 height: 6px;
+	}
+	
+	h1{
+		text-align: center;
+	}
+	
+	.inbox-main{
+		padding: 10px;
+		min-height: 100%;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 1fr 10fr;
+		grid-row-gap: 1vw;
+		grid-template-areas: 
+		"inbox-nav"
+		"main";
+	}
+	
+	.inbox-div{
+		display: none;
+	}
+	#artifact{
+		bottom: 0%;
+	}
+	
+	@keyframes artifact-animation {
+  from {bottom: 0%; opacity: .3;}
+  to {bottom: 100%; opacity: .45;}
+}
+
+}
+

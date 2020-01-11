@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<nav class="top-nav">
+	<a id="logout" href="/logout">Logout</a>
+</nav>
+
+<main>
+	<h1 class="page-title">User Select</h1>
+	<section class="result-main">
+		<% characterList.forEach(function(character){ %>
+				<a class="character-card" href="/characters/<%= character.id %>"><div><%= character.first_name %> <%= character.family_name %></div></a>
+		<% }) %>
+	</section>
+</main>
+
+
+<% include ../partials/footer %>

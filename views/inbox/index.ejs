@@ -1,0 +1,74 @@
+<% include ../partials/header %>
+<nav class="top-nav">
+	<p>
+		<a href="/characters/<%=characterDetails[0].id%>">Back to Userpage</a> 
+	</p>
+	<p>
+		<a href="/logout">Logout</a>
+	</p>
+</nav>
+<main>
+	<section class="inbox-main">
+		<nav class="inbox-nav">
+			<a class="emphasize" href="/characters/<%=characterDetails[0].id%>/inbox/new">Compose Message</a>
+			<a href="/characters/<%=characterDetails[0].id%>/inbox/">Inbox</a>
+			<a href="/characters/<%=characterDetails[0].id%>/inbox/sent-messages">Sent Messages</a>
+		</nav>
+		<div class="inbox-div"></div>
+			<% if (screen == "outbox"){ %>
+				<section class="outbox">
+					<section>
+						<h1 class="emphasize"><%= characterDetails[0].first_name %>'s Sent Messages</h1>
+					</section>
+					<section class="inbox-content">
+						<% messageDetails.forEach(function(message){ %>
+							<div class="message-card">
+								<p>To: <%= message.recipient %></p>	
+								<p>From: <%= message.currentUser %></p>	
+								<p>Subject: <%= message.subject %></p>
+								<hr>
+								<p class="message-body"><%= message.message %>...</p>
+							</div>
+						<% }) %>
+					</section>
+				</section>
+			<% } else { %>
+				<section class="inbox">
+					<section><h1 class="emphasize"><%= characterDetails[0].first_name %>'s Inbox</h1></section>
+					<section class=inbox-content>
+						<% messageDetails.forEach(function(message){ %>
+							<a href="/characters/1/inbox/<%=message.messageID %>">
+								<div class="message-card">
+									<h3>From: <%= message.sender %></h3>
+									<hr>
+									<div class="message-proper">
+										<span class="message-subject"><%= message.subject.substring(0,25) %></span>
+										<!-- <% if(message.message.length > 25){ %>
+										<span class="message-body"><%= message.message.substring(0,25) %>...</span>
+										<% } %> -->
+										<% if (message.days_since == 0){ %>
+										<span class="message-date">Today</span>
+										<% } else if (message.days_since ==1){ %>
+										<span class="message-date"><%= message.days_since %> day ago</span>
+										<% } else { %>
+										<span class="message-date"><%= message.days_since %> days ago</span>
+										<%}%>
+										
+									</div>
+									
+								</div>
+							</a>
+						<% }) %>
+					</section>
+				</section>
+			<% } %>
+
+</section>
+</main>
+
+<script>
+	let oldMessage = document.getElementById("parent-message-content").innerText;
+	document.getElementById("parent-message-content").innerHTML = oldMessage;
+</script>
+
+<% include ../partials/footer %>
