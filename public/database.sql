@@ -30,6 +30,26 @@ CREATE TABLE messages(
 	FOREIGN KEY (toChar) REFERENCES characters(id)
 );
 
+CREATE TABLE campaigns(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	owner_id INT,
+	title VARCHAR(50)
+);
+
+CREATE TABLE game_sessions(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	owner_id INT,
+	num INT,
+	noteURL VARCHAR(500)
+);
+
+CREATE TABLE campaign_session(
+	campaigns_id INT,
+	sessions_id INT,
+	FOREIGN KEY (campaigns_id) REFERENCES campaigns(id),
+	FOREIGN KEY (sessions_id) REFERENCES game_sessions(id) 
+);
+
 
 #From
 SELECT characters.first_name AS "From", messages.subject AS "Subject", c.first_name AS "To" FROM characters LEFT JOIN messages ON characters.id = messages.fromChar LEFT JOIN characters AS c ON c.id = messages.toChar WHERE messages.toChar = 2;

@@ -53,7 +53,7 @@ router.get('/', function(req, res){
 
 //log in request for user page
 router.post('/logmein', passport.authenticate('local', {
-	successRedirect: '/characters', 
+	successRedirect: '/user-page', 
 	failureRedirect: '/'
 }));
 
@@ -90,6 +90,15 @@ router.get('/register', function(req, res, next) {
 	res.render('register');
 });
 
+router.get('/user-page', function(req, res, next){
+	let user = { 
+		id : req.user[0].id,
+		first : req.user[0].first_name,
+		username : req.user[0].username
+	};
+
+	res.render('user-page', {user: user});
+});
 
 module.exports = router;
 

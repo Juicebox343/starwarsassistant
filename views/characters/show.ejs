@@ -2,7 +2,7 @@
 
 <nav class="top-nav">
 	<p>
-		<a href="/characters/">Back to User Select</a>
+		<a href="/characters/">Back to Character Select</a>
 	</p>
 </nav>
 
@@ -103,25 +103,69 @@
 			Galactic Weather
 		</h1>
 		<hr>
-		<div class="weather-card">
-			<h2>
-				Telewrath
-			</h2>
-			<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[0].icon%>.svg">
-			<p>
-				<%= Math.round(weather.daily.data[0].temperatureHigh); %>
-			</p>
+		<div class="weather-wrapper">
+			<div class="weather-card">
+				<h2>
+					Coruscant
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[0].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[0].temperatureHigh); %>
+				</p>
+			</div>
+	
+			<div class="weather-card">
+				<h2>
+					Alderaan
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+				</p>
+			</div>
+	
+			<div class="weather-card">
+				<h2>
+					Nar Shaddaa
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+				</p>
+			</div>
+	
+			<div class="weather-card">
+				<h2>
+					Hosnian Prime
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+				</p>
+			</div>
+	
+			<div class="weather-card">
+				<h2>
+					Malastare
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+				</p>
+			</div>
+
+			<div class="weather-card">
+				<h2>
+					Ryloth
+				</h2>
+				<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
+				<p>
+					<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
+				</p>
+			</div>
+
 		</div>
-		<hr>
-		<div class="weather-card">
-			<h2>
-				Coruscant
-			</h2>
-			<img class="weather-icon" src="/assets/weather-icons/<%=weather.daily.data[4].icon%>.svg">
-			<p>
-				<%= Math.round(weather.daily.data[4].temperatureHigh) - 9; %>
-			</p>
-		</div>
+		
 		
 	</section>
 </main>

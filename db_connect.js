@@ -3,8 +3,8 @@ mysql = require('mysql');
 const db = mysql.createConnection({
     host     : 'localhost',
 	user     : 'root',
-	password : 'BumbleBucket_42',
-    database : 'wdf2',
+	password : 'PorterFridge42',
+    database : 'swassist',
 	multipleStatements: true
 });
 

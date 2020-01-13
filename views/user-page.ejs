@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+
+<nav class="top-nav">
+	<a id="logout" href="/logout">Logout</a>
+</nav>
+
+<main>
+	<h1 class="page-title">Hey <%= user.first %></h1>
+	<section class="result-main">
+		<% if (user.id == 1){ %>
+		<a class="fake-btn" href="/campaign-manager">Campaign Manager</a> 
+		<%	} %>	
+		<a class="fake-btn" href="/characters">My Characters</a>
+		<a class="fake-btn" href="">Account Settings</a>
+	</section>
+</main>
+
+<% include ./partials/footer %>

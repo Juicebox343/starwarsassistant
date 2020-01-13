@@ -17,7 +17,7 @@ router.get('/', isAuthenticated, function(req, res, next){
 	console.log(err);
 	} else {
 		var characterList = results;
-		res.render("characters/index", {characterList: characterList});
+		res.render("characters/index", {characterList: characterList, user: user});
 	}
 	});
 });
@@ -38,7 +38,7 @@ router.get('/:id', isAuthenticated, function(req, res, next){
 			var characterDetails = results[0];
 			var messageDetails = results[1];
 
-			res.render("characters/show", {weather:weather,characterDetails: characterDetails, messageDetails: messageDetails, user: user});
+			res.render("characters/show", {weather: weather,characterDetails: characterDetails, messageDetails: messageDetails, user: user});
 		}
 		
 	}

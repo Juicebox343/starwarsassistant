@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+
+<nav class="top-nav">
+	<p>
+		<a href="/user-page">Back to User Page</a>
+	</p>
+</nav>
+
+<main>
+	<h1 class="page-title">Session 27</h1>
+	<section class="session-manager">
+        <div class="session-notes"></div>
+        <div class="npc-gen">
+            <p class="">Name: <span> </span> Species: <span> </span></p>
+            <p class="">Presentation: <span> </span></p>
+            <p class="">Disposition: <span> </span></p>
+            <p class="">Reflex: <span> </span> Fortitude: <span> </span> Will: <span> </span></p>
+            <button>Generate NPC</button>
+        </div>
+
+        <div class="reference">
+            
+            <div>
+                <input type="radio" name="chart-select" value="skills" id="skills">
+                <label for="skills">Skills</label>
+                <input type="radio" name="chart-select" value="combat" id="combat">
+                <label for="combat">Combat</label>
+                <input type="radio" name="chart-select" value="misc" id="misc">
+                <label for="misc">Misc</label>
+            </div>
+            
+            <div class="reference-text">
+                
+            </div>
+            
+        </div>
+        <div class="audio"></div>		
+	</section>
+</main>
+
+<% include ../partials/footer %>

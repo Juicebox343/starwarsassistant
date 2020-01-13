@@ -153,8 +153,6 @@ input{
 	background-color: rgb(21, 102, 194);
 	border: solid 2px rgb(176, 234, 255);
 	color: rgb(176, 234, 255);
-	display: block;
-    width: 100%;
 }
 
 button{
@@ -297,6 +295,13 @@ a{
 	order: 3;
 }
 
+.weather-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-items: center;
+	justify-content: space-between;
+}
+
 .messages{
 	padding: 4px;
 	grid-area: email;
@@ -336,7 +341,7 @@ a{
 }
 
 .fake-btn{
-	padding: 2px;
+	padding: 10px;
 	background-color: rgb(21, 102, 194);
 	border: solid 2px rgb(176, 234, 255);
 	color: rgb(176, 234, 255);
@@ -353,11 +358,71 @@ a{
 .weather-card{
 	padding: 20px;
 	text-align: center;
+	width: 150px;
 }
 
 .weather-icon img{
 	fill: #b0eaff;
 }
+
+/* Session Manager */
+
+.session-manager{
+	height: 100%;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr 2fr 2fr 1fr;
+	column-gap: 1vw;
+	grid-template-areas: 
+	"notes npc"
+	"notes reference"
+	"notes reference"
+	"audio audio";
+}
+
+
+
+.session-notes{
+	grid-area: notes;
+	border: solid 2px rgb(176, 234, 255);
+	padding: 3px 7px;
+	margin: 7px;
+	background-color: rgb(21, 102, 194);
+}
+
+.npc-gen{
+	grid-area: npc;
+	border: solid 2px rgb(176, 234, 255);
+	padding: 3px 7px;
+	margin: 7px;
+	background-color: rgb(21, 102, 194);
+}
+
+.reference{
+	grid-area: reference;
+	border: solid 2px rgb(176, 234, 255);
+	padding: 3px 7px;
+	margin: 7px;
+	background-color: rgb(21, 102, 194);
+}
+
+.reference-text{
+	padding: 3px 7px;
+	margin: 7px;
+}
+
+.audio{
+	grid-area: audio;
+	border: solid 2px rgb(176, 234, 255);
+	padding: 3px 7px;
+	margin: 7px;
+	background-color: rgb(21, 102, 194);
+}
+
+
+
+
+
 @media only screen and (max-width: 1000px) {
 	
 	html{
@@ -412,4 +477,6 @@ a{
 }
 
 }
+
+
 
