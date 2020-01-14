@@ -2,8 +2,6 @@ const bodyParser 		= require('body-parser'),
 	  methodOverride    = require('method-override'),
 	  expressSanitizer  = require('express-sanitizer'),
 	  express           = require('express'),
-	  mysql 			= require('mysql'),
-	  db 				= require('./db_connect.js'),
 	  app               = express();
 
 app.set('view engine', 'ejs');
@@ -27,4 +25,4 @@ app.use('/characters/:id/inbox', inboxRoutes);
 app.use('/campaign-manager', campaignManagerRoutes);
 app.use('/campaign-manager/:id/session-manager', sessionManagerRoutes);
 
-app.listen(port, () => console.log('The wdf server has started'));
+app.listen(port, () => console.log('The sw assistant server has started'));

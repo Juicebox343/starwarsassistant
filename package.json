@@ -1,16 +1,12 @@
 {
-  "name": "wdf",
+  "name": "swassistant",
   "version": "1.0.0",
-  "description": "",
+  "description": "Star Wars Saga Edition table assistant",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Joe",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
     "express-sanitizer": "^1.0.5",
@@ -21,5 +17,19 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "request": "^2.88.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juicebox343/starwarsassistant.git"
+  },
+  "author": "Joe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juicebox343/starwarsassistant/issues"
+  },
+  "homepage": "https://github.com/Juicebox343/starwarsassistant#readme"
 }

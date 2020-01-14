@@ -1,10 +1,12 @@
 const express = require("express"),
 	  router  = express.Router(),
 	  db = require("../db_connect.js"),
-	  request = require('request');
+	  request = require('request'),
+	  {darkSkyEndPoint} = require('../config');
+	  
 
 var options = {
-  url: 'https://api.darksky.net/forecast/48cab9d412fc8c702ece4c15473c7c86/37.6293992,-121.0008507'
+  url: 'https://api.darksky.net/forecast/' + DARKSKY_END + '/37.6293992,-121.0008507'
 };
 
 
